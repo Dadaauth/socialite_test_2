@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/css/style.css">
+    <title>Login</title>
+</head>
+<body>
+    <%if(typeof(message) !== "undefined"){%>
+        <div class="alert alert-danger" id = "alert-dismissible" role="alert"><%=message%></div>
+    <%}%>
+    <%if (typeof(emptyFields) !== "undefined"){%>
+        <div class="alert alert-danger" id = "alert-dismissible" role="alert">Please fill in all required fields!</div>
+    <%}%>
+    <%if (typeof(userUnknown) !== "undefined"){%>
+        <div class="alert alert-danger" id = "alert-dismissible" role="alert" style="color: rgb(249, 229, 229)">User not found!</div>
+    <%}%>
+    <%if (typeof(passwordWrong) !== "undefined"){%>
+        <div class="alert alert-danger" id = "alert-dismissible" role="alert" style="color: rgb(249, 229, 229)">Incorrect password!</div>
+    <%}%>
+    <%if (typeof(loginError) !== "undefined"){%>
+        <div class="alert alert-danger" id = "alert-dismissible" role="alert">Error Occured With Login! This is an Issue on our side,
+            our engineers are working tirelessly to make it better. You can contact us at <a href="">Contact Us</a>.
+        </div>
+    <%}%>
+    <form action="/auth/login" method="post">
+        <input type="email" name="email" id="email"></br>
+        <input type="password" name="password" id="password"></br>
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>

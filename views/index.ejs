@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/css/style.css">
+    <title>Social NetWork Test 2.0</title>
+</head>
+<body>
+    <h1> Welcome <%=user.username%>!</h1>
+    <h2>This is the home page of my social network!</h2>
+    <a href="/auth/login">login</a> <a href="/auth/register">register</a> <a href="/auth/logout?from=/">logout</a>
+
+    <h4>Connect With Other Users</h4>
+    <div class="displayOtherUsers">
+        <%users.map((oUser) => {%>
+            <%if (oUser.info.username != user.username){%>
+                <%oUser.status%>
+                <a href="#"><p><%=oUser.info.username%></p></a>
+                <%if (oUser.status == "YouAreWaiting"){%>
+                    <p>Request Sent!</p>
+                    <p>Cancel Request</p>
+                <%}else if (oUser.status == "NeedsYourAnswer"){%>
+                    <p>Accept Request</p><p>Decline Request</p>
+                <%}else{%>
+                    <a href=<%="/connect?user=" + user._id + "&to=" + oUser.info.id%>><p style="color: red; font-size: larger;">Connect</p></a>              
+                <%}%>
+            <%}%>
+                </br>
+        <%})%>
+    </div>
+</body>
+</html>

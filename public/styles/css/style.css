@@ -1,0 +1,16 @@
+h2 {color: red}
+.requiredAsterik{color: red}
+.alert{border-radius: 10px; display: inline-block; padding: 1rem;margin: 1rem;}
+.alert-danger{background-color: rgb(235, 111, 10);} 
+.alert-dismissible{
+    
+}
+#alert-dismiss:hover{
+    background-color: grey;
+    cursor: pointer;
+}
+
+.displayOtherUsers a{
+    color: black;
+    text-decoration: none !important;
+}
